@@ -1,0 +1,8 @@
+Todo,A-Block,B-Block,Schüler A,Schüler B,BerID,Einrichtung,Praktikumsstelle,Strasse Hausnummer,PLZ,Ort,Ansprechpartner Einrichtung,Telefon Einrichtung,Mail Einrichtung,Ansprechpartner Stelle,Telefon Stelle,Mail Stelle,Gender,MVV,homepage,BemerkungExtern,Vorstellung,BioSt,BemerkungIntern,Geo
+,S11a,S11c,,,ERZ,Städt. Kindergarten in der Au,Kindergarten,Hauptstraße 12,,,,,,,,,w,,,,erreichbar 7-15 Uhr,True,,
+,S11a,S11c,,,SOP,Blindenbund,Sonderpädagogischer Kindergarten,,,,,,,,,,w,,,Betreuung von Blinden zu Hause (meist ältere Personen)  hohe Selbständigkeit erf.,"Auswahlgespräch fpA Leitung, Termin folgt, anschließend in der Einrichtung vorstellen",True,,
+,S11b,S11d,,,SOP,Lebenshilfe,Sonderpädagogische Einzelbetreuung,,,,,,,,,,m,Hauptbahnhof,,,,False,,
+,S11b,S11d,,,ERZ,Kinderhaus Sonneschein,Sonderpädagogische Einzelbetreuung,,,,,,,,,,m,Hauptbahnhof,,,,False,,
+Nachfragen EFZ,S11a,S11c,,,ERZ,Kinderhaus im Hinterhof,Sonderpädagogische Gruppenbetreuung schulpflichtige Kinder,,,,,,,,,,w,,,,Mo - Do 7:30 - 15:30 erreichbar,True,,
+,S11b,S11d,,,SEN,Seniorenwohnen Waldeck,Tagespflege,,,,,,,,,,w,U Bahn Südstadt,,,Mo - Do 7:30 - 15:30 erreichbar,False,,
+,S11a,S11c,,,SEN,Seniorenwohnen Waldeck,Tagespflege,,,,,,,,,,w,,,,,False,,

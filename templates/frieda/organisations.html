@@ -1,0 +1,15 @@
+{% extends "frieda/base.html" %}
+
+{% block content %}
+<h1 class="panel">Einrichtungen</h1>
+<p class="panel">
+    <a href="/frieda/organisation/" title="Neu" >Neue Einrichtung</a>
+</p>
+<ul class="organisations panel">
+{% for organisation in organisations %}
+    <li>
+        <a href="/frieda/organisation/{{ organisation.id }}" title="edit">{{ organisation.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,228 @@
+.clear,
+.cb { clear:both; }
+.cl { clear:left; }
+.cr { clear:right; }
+.left { float:left;}
+.right { float:right;}
+.none { float: none !important;}
+.marginleft,
+img[src$='#left'], /* use blind hash as workaround if class can't set, eg markdown etc */
+img.left { float:left;margin:0 5px 5px 0;}
+.marginright,
+img[src$='#right'],
+img.right { float:right;margin:0 0 5px 5px;}
+.block { display: block;}
+.hidden { display: none; }
+
+/* 2-column for key value lists .row2 is above if you use not changable sections like markdown-lists */
+.row2 dl dt {font-weight: bold;}
+@media only print, only screen and (min-width: 680px) {
+    .row2 dl dt {clear: both; float: left; width: 25%;}
+    .row2 dl dd {float: right; width: 75%; margin-left: 0}
+}
+
+/* proportion */
+body { font:normal 14px Arial, Helvetica; color:#444; background-color: #F7F7F7 ;margin: 0; padding: 0; outline: none;line-height:1.6;}
+.main { background-color: #eee; padding: 3px 10px; }
+
+
+.panel {margin:5px auto;padding:0 10px;max-width:950px;}
+.paneloutbreak { display: flex; align-items: center; justify-content: center; }
+
+/* content */
+a { text-decoration: underline; color: #0000ee; }
+a:visited { color: inherit; }
+a:hover { text-decoration: none; }
+a:active, /* set class "active" for current pages*/
+a.active { color: #2E6465; }
+a[href^="#"] { font-style: italic ; } /* anchor links staying on the current page */
+a[href^="//"],
+a[href^="http"] { background: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3C%3Fxml version=%221.0%22 encoding=%22UTF-8%22%3F%3E %3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%23fff%22 stroke=%22%2336c%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E %3Cpath fill=%22%2336c%22 d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22/%3E %3Cpath fill=%22%23fff%22 d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22/%3E %3C/svg%3E") no-repeat center right; padding-right: 13px; } /* external links */
+a[href^="tel:"] { color: inherit; text-decoration: inherit; }
+img { border: 0; max-width: 100%;}
+
+
+a {
+    color: #8da7cc;
+}
+/*
+a[href^="http"]::after {
+    content: "â†—";
+    padding-left: 1px;
+    font-size: 60%;
+    margin-bottom: 1em;
+}
+*/
+a[href^="#"] {
+    font-style: italic ;
+    color: inherit;
+}
+h1,
+.lead,
+#footer {
+    background: none repeat scroll 0 0 #8da7cc;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 35px;
+    padding: 15px 10px;
+}
+#header {
+    height: 20px;
+}
+#footer a {
+    color: #FFFFFF;
+}
+h1 {
+    font-size: 28px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+h2 {
+    border-bottom: 1px solid #8da7cc;
+    padding-bottom: 5px;
+    clear: both;
+}
+ul {
+    list-style:none;
+    list-style-image: url('data:image/gif;base64,R0lGODlhBQANAIAAAGOMnP///yH5BAEAAAEALAAAAAAFAA0AAAIJjI+pu+APo4SpADs');
+    margin-left: -25px;
+}
+b,
+.row2 dl dt {
+    font-weight: normal ;
+}
+.row2 dl dd {
+    margin-bottom: 8px;
+}
+a[href^="tel:"] {
+    color: inherit;
+    text-decoration: inherit;
+}
+form {
+}
+form input,
+form textarea {
+    border: 0;
+}
+form input[type="submit"] {
+    width: 80px;
+}
+form textarea {
+    height: 3em;
+    width: 98%;
+}
+blockquote {
+    background-color: #393939 ;
+    border-left: 2px solid #8da7cc;
+    padding: 0px 10px;
+    margin: 0px 0px 30px 0px;
+}
+fieldset {
+    padding: 0 2px 2px ;
+}
+legend {
+    font-size: 80%;
+}
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+    text-decoration: none;
+}
+#header a {
+    font-family: monospace;
+    text-decoration: none;
+}
+@media not screen and (min-width: 680px) {
+    h1 {
+        font-size: 20px;
+    }
+}
+@media print {
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.icon_legend { padding: 2px 10px; color: blue;} 
+.BER_SOP { background-color: DarkOrange ; } 
+.BER_ERZ { background-color: PaleVioletRed; }
+.BER_SEN { background-color: gold; }
+h1 input,
+.name input {
+    width: 750px;
+    font-size: 120%;
+    margin: 5px 0;
+}
+.plz input {
+    width: 50px;
+}
+
+.even {
+    
+    background-color: #dcffd5;
+}
+
+td {
+    vertical-align: top;
+}
+.internship th {
+    background-color: #fff;
+/*
+    height: 140px;
+*/
+}
+.listhead {
+    position: sticky;
+    top: 0;
+    height: 100px;
+    vertical-align: bottom;
+}
+
+
+span.vertical  {
+    transform: rotate(270deg);
+    width: 15px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#map {
+    height: 480px;
+}
+ul.organisation li,
+ul.internship li {
+    display: inline;
+    clear: both;
+}
+ul.internship {
+    border-left: 10px solid gray;
+    margin: 19px 0;
+    padding: 0 10px;
+
+}
+/* new internship */
+ul.internship:last-of-type::before {
+    content: "Neu Stelle ";
+}
+ul.internship:last-of-type {
+    border-left: 10px solid lime;
+}
+ul.internship:last-of-type .zuordnung {
+    display: none;
+}
+a.www {
+    text-decoration: none;
+}
+
+@media print {
+    .noprint {
+        display:none;
+    }
+    td {
+        border-top: 2px solid;
+    }
+}

@@ -1,0 +1,18 @@
+{% extends "frieda/base.html" %}
+
+{% block content %}
+<h1 class="panel">Frieda</h1>
+
+<div class="panel">
+{% if user.is_authenticated %}
+
+{% else %}
+<form method="post">
+{% csrf_token %}
+    {{ AuthenticationForm }}<br>
+     <input type="submit" value="Submit" accesskey="s">
+</form>
+{% endif %}
+
+</div>
+{% endblock %}

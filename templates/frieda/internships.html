@@ -1,0 +1,101 @@
+{% extends "frieda/base.html" %}
+{% block content %}
+<div class="panel">
+    <h1>Praktikumsstellen</h1>
+    <span class="noprint">
+{% for berid in internships_ber %}
+        <a href="?ber={{ berid.0 }}" class="icon_legend BER_{{ berid.0 }}">{{ berid.1 }}</a> {{ berid.2 }} ({{ berid.3 }}) |
+{% endfor %}
+        <a href="?course=S11a" class="">S11a</a> |
+        <a href="?course=S11b" class="">S11b</a> |
+        <a href="?course=S11c" class="">S11c</a> |
+        <a href="?course=S11d" class="">S11d</a> |
+        <a href="?course=empty" class="">Freie Stellen</a> |
+        <a href="?allcourse=✔" class="">Besondere Stellen</a> |
+        <a href="?todo=✔" class="">todo</a> |
+        <a href="/internships" >Alle</a>
+    </span>
+</div>
+
+<div id="map" class="paneloutbreak"></div>
+
+<ul class="paneloutbreak">
+
+<table class="internship">
+<tr class="listhead">
+<th><span class="vertical">Bereich</span></th>
+<th>Einrichtung</th>
+<th>Stelle</th>
+<th>Adresse</th>
+<th>Bemerkung</th>
+<th>Vorstellung</th>
+<th><span class="vertical">biost</span></th>
+<th><span class="vertical">Pflege</span></th>
+<th><span class="vertical">EFZ</span></th>
+<th><span class="vertical">Führerschein</span></th>
+<th><span class="vertical">ab 18</span></th>
+<th>Schüler</th>
+</tr>
+{% for internship in internships %}
+    {% load l10n %}
+<tr class="{% cycle 'odd' 'even' %}">
+    <td class="BER_{{ internship.berid }}"> 
+        {{ internship.berid }}<br>
+        {% if internship.allcourse is True %}
+            <i>Bes</i>
+        {%  endif %}
+        {% if user.is_authenticated and user.is_staff == True %}
+            <a href="organisation/{{ internship.organisation.id }}" title="edit" accesskey="e">Edit</a><br>
+        {%  endif %}
+        
+    </td>
+    <td>
+        <a href="?id={{ internship.id }}" >{{ internship.organisation }}</a><br>
+        {{ internship.organisation.contactperson }}<br>
+        {{ internship.organisation.phone }}<br>
+        {{ internship.organisation.mail }}
+    </td>
+    <td>
+        <a href="?id={{ internship.id }}" >{{ internship.name }}</a><br>
+       {{ internship.contactperson }}<br>
+       {{ internship.phone }}<br>
+       {{ internship.mail }}<br>
+    <td>
+        {{ internship.street }}<br/>
+        {{ internship.zip }} {{ internship.city}}<br/>
+   MVV: {{ internship.publictransport }}<br/>
+    </td>
+    <td>{{ internship.commentextern }}</td>
+    <td>{{ internship.interview }}</td>
+    <td>{% if internship.biost is True %}☣{%  endif %}</td>
+    <td>{% if internship.care is True %}⚕{%  endif %}</td>
+    <td>{% if internship.efz is True %}⚖{%  endif %}</td>
+    <td>{% if internship.driverlicence is True %}🚗{%  endif %}</td>
+    <td>{% if internship.least18 is True %}18{%  endif %}</td>
+    <td>    <textarea></textarea></td>
+</tr>
+{% endfor %}
+</table>
+
+
+<script>
+var map = L.map('map').setView([48.14210025,11.557437641150113], 12);
+var BER_SOP = L.divIcon({className: 'BER_SOP'});
+var BER_ERZ = L.divIcon({className: 'BER_ERZ'});
+var BER_SEN = L.divIcon({className: 'BER_SEN'});
+var markers = L.markerClusterGroup();
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+{% for internship in internships %}
+    {% load l10n %}
+    {% if internship.geo|length %}
+    markers.addLayer(L.marker([ {{ internship.geo }} ], {icon: BER_{{ internship.berid }} } ).bindPopup('{{ internship.organisation }}<br/>{{ internship.name }}<br>{% if user.is_authenticated and user.is_staff == True %}<a href="organisation/{{ internship.organisation.id }}" title="edit" accesskey="e">Edit</a>{%  endif %}').openPopup() );
+map.addLayer(markers);{%  endif %}
+{% endfor %}
+var group = new L.featureGroup(markers);
+map.fitBounds(group.getBounds());
+</script>
+{% endblock %}

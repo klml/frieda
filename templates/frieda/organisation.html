@@ -1,0 +1,88 @@
+{% extends "frieda/base.html" %}
+
+{% block content %}
+<form class="panel" method="post">
+{% csrf_token %}
+<h1 class="panel">Einrichtung: {{ organisation.name }}</h1>
+ <ul class="organisation">
+  <fieldset>
+    <legend>Adresse:</legend>
+    <li title="Straße" >{{ organisation.street }}</li>
+    <li title="PLZ" class="plz" >{{ organisation.zip }}</li>
+    <li title="Ort">{{ organisation.city }}</li>
+  </fieldset>
+  <fieldset>
+    <legend>Ansprechpartner:</legend>
+    <li>{{ organisation.contactperson }}</li> 
+    <li>{{ organisation.phone }} <a href="tel:{{ organisation.telefon.value }}">☎</a></li> 
+    <li>{{ organisation.mail }} <a href="mailto:{{ organisation.mail.value }}?subject=Praktikum%20FOS%20Nord">@</a></li> 
+    <li>{{ organisation.homepage }} <a href="{{ organisation.homepage.value }}" class="www"></a></li> <!-- no text icon -->
+  </fieldset>
+  <fieldset>
+    <legend>Bemerkung:</legend>
+    <li>{{ organisation.comment }}
+  </fieldset>
+ </ul>
+
+<h2>Stellen </h2>
+{% for internship in internships %}
+<ul class="internship">
+     <li class="right">{{ internship.berid }}</li> 
+     <li class="name">{{ internship.name }}</li> 
+  <fieldset>
+    <legend>Adresse:</legend>
+     <li>{{ internship.street }}</li> 
+     <li class="plz">{{ internship.zip }}</li> 
+     <li>{{ internship.city }}</li><br>
+     <li>MVV Haltestelle: {{ internship.publictransport }}</li> 
+     <li>Koordinate {{ internship.geo }}</li> 
+  </fieldset>
+  <fieldset>
+    <legend>Ansprechpartner:</legend>
+     <li>{{ internship.contactperson }}</li> 
+     <li>{{ internship.phone }} <a href="tel:{{ internship.phone.value }}">☎</a></li> 
+     <li>{{ internship.mail }} <a href="mailto:{{ internship.mail.value }}?subject=Praktikum%20FOS%20Nord">@</a></li> 
+  </fieldset>
+     <li>{{ internship.biost }} Bios</li> 
+     <li>{{ internship.care }} Pfelge </li> 
+     <li>{{ internship.efz }} EFZ</li> 
+     <li>{{ internship.driverlicence }} FZ </li> 
+     <li>{{ internship.least18 }} 18</li> 
+     <li>{{ internship.allcourse }} Besondere</li> 
+  <fieldset>
+    <legend>Marks</legend>
+     <li>Vorstellung: {{ internship.interview }}</li>
+     <li>Bemerkung extern: {{ internship.commentextern }}</li>
+     <li>Bemerkung intern: {{ internship.commentintern }}</li>
+     <li>Todo: {{ internship.todo }}</li>
+  </fieldset>
+  <fieldset class="zuordnung">
+    <legend>Zuordnung SuS</legend>
+     <li>
+         <table>
+            <tr>
+                <th>Block</th>
+                <th>Klasse</th>
+                <th>1. Halbjahr</th>
+                <th>2. Halbjahr</th>
+            </tr>   
+            <tr>
+                <td>A</td>
+                <td>{{ internship.assignment.ablock }}</td>
+                <td>{{ internship.assignment.student_a_1 }}</td>
+                <td>{{ internship.assignment.student_a_2 }}</td>
+            </tr>   
+            <tr>
+                <td>B</td>
+                <td>{{ internship.assignment.bblock }}</td>
+                <td>{{ internship.assignment.student_b_1 }}</td>
+                <td>{{ internship.assignment.student_b_2 }}</td>
+            </tr>   
+         </table>
+     </li>
+  </fieldset>
+</ul>
+{% endfor %}
+ <input type="submit" value="Submit" accesskey="s">
+</form>
+{% endblock %}
