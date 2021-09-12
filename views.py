@@ -64,6 +64,7 @@ def internship_organisation_csv(request):
         writer.writerow(internship_row)
     return response
 
+@login_required
 def organisations (request):
 
     filterargs = {  } 
