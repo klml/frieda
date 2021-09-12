@@ -92,7 +92,6 @@ def organisation (request, pk=None):
     # organisation
     organisation_form           = Organisation_Form(request.POST or None, instance=organisation)
     
-    print(request.user.is_staff)
     if request.POST and organisation_form.is_valid() and request.user.is_staff :
         organisation = organisation_form.save()
         save_as_csv()
@@ -217,7 +216,6 @@ def index(request):
                 login(request, user)
             else:
                 # Return an 'invalid login' error message.
-                print('invalid login')
                 return render(request, 'frieda/index.html', {'AuthenticationForm': "invalid login" })
 
         if request.POST.get('logout') :
