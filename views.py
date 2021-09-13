@@ -101,6 +101,7 @@ def organisation (request, pk=None):
 
     for internship in internships:
         internship_form      = Internship_Form(request.POST or None, prefix="offers" + str(internship.id), instance=internship) 
+        internship_form.id   = internship.id
 
         # assign internship to students per active school_year and semester
         try:
