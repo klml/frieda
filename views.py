@@ -95,7 +95,6 @@ def organisation (request, pk=None):
     
     if request.POST and organisation_form.is_valid() and request.user.is_staff :
         organisation = organisation_form.save()
-        backup()
 
     # all existing internship for this organisation   
     internship_forms   = []
@@ -134,6 +133,7 @@ def organisation (request, pk=None):
         internship_new_form.save()
 
     if request.POST :
+        backup()
         return redirect('organisation', pk=organisation.id )
 
     return render(request, 'frieda/organisation.html', { 
