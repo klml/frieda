@@ -19,7 +19,7 @@ from .models import *
 from .forms import *
 
 
-def save_as_csv():
+def backup():
     for model in apps.get_models('frieda'):
         # blacklist django internal models like django.contrib.sessions.models.Session
         # TODO dont check only the string
@@ -95,7 +95,7 @@ def organisation (request, pk=None):
     
     if request.POST and organisation_form.is_valid() and request.user.is_staff :
         organisation = organisation_form.save()
-        save_as_csv()
+        backup()
 
     # all existing internship for this organisation   
     internship_forms   = []
