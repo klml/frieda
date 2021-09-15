@@ -45,7 +45,7 @@ def internship_organisation_csv(request):
     # Create the HttpResponse object with the appropriate CSV header.
     response = HttpResponse(
         content_type='text/csv',
-        headers={'Content-Disposition': 'attachment; filename="stellen.csv"'},
+        headers={'Content-Disposition': 'attachment; filename="internship_organisation.csv"'},
     )
 
     writer = csv.writer(response)

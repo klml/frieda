@@ -10,7 +10,7 @@ urlpatterns = [
     re_path(r'organisation/?$', views.organisation, name='organisation'),
     re_path(r'organisation/(?P<pk>\d+)/$', views.organisation, name='organisation'),
 
-    re_path(r'csv/?$', views.internship_organisation_csv, name='internship_organisation_csv'),
+    path('internship_organisation.csv', views.internship_organisation_csv, name='internship_organisation_csv'),
     
     path('contact', views.content, name='content'),
 ]
