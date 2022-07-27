@@ -226,7 +226,12 @@ def index(request):
     return render(request, 'frieda/index.html', {'AuthenticationForm': AuthenticationForm })
     
 def content(request):
-
+    """
+    define pages (e.g. /contact) with prosa content 
+    add Metacontent in admin
+    Path: URL path (e.g. /contact)
+    Content: <me@example.org>
+    """
     try:
         content = Metacontent.objects.get(path=request.path[1 : ]).content
     except:
