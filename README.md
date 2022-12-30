@@ -5,7 +5,7 @@ __Frieda__ is a management tool to assign external internships for students.
 Made with [Django](https://www.djangoproject.com).
 
 
-[![screenshot frieda stellenliste](//img.klml.de/devel/frieda_stellenliste__520.png)](https://img.klml.de/devel/frieda_stellenliste.png)
+[![screenshot frieda stellenliste](https://img.klml.de/devel/frieda_stellenliste__520.png)](https://img.klml.de/devel/frieda_stellenliste.png)
 
 ### Import
 
