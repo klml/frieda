@@ -6,12 +6,14 @@
 {% for berid in internships_ber %}
         <a href="?ber={{ berid.0 }}" class="icon_legend BER_{{ berid.0 }}">{{ berid.1 }}</a> {{ berid.2 }} ({{ berid.3 }}) |
 {% endfor %}
-        <a href="?course=S11a" class="">S11a</a> |
-        <a href="?course=S11b" class="">S11b</a> |
-        <a href="?course=S11c" class="">S11c</a> |
-        <a href="?course=S11d" class="">S11d</a> |
+        A: |
+        <a href="?course=West" class="">West</a> |
+        <a href="?course=NordA" class="">NordA</a> |
+        <a href="?course=Ost" class="">Ost</a> |
+        B: 
+        <a href="?course=Mitte" class="">Mitte</a> |
+        <a href="?course=NordB" class="">NordB</a> |
         <a href="?course=empty" class="">Freie Stellen</a> |
-        <a href="?allcourse=✔" class="">Besondere Stellen</a> |
         <a href="?todo=✔" class="">todo</a> |
         <a href="/internships" >Alle</a>
     </span>
